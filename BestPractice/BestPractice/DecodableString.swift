@@ -8,13 +8,17 @@
 
 import Foundation
 
-class DecodableString: Identifiable, Comparable, Equatable, Decodable {
+class DecodableString: Hashable, Comparable, Equatable, Decodable {
     static func < (lhs: DecodableString, rhs: DecodableString) -> Bool {
         return lhs.stringValue < rhs.stringValue
     }
     
     static func == (lhs: DecodableString, rhs: DecodableString) -> Bool {
         return lhs.stringValue == rhs.stringValue
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        return stringValue.hash(into: &hasher)
     }
     
     let stringValue: String
@@ -40,10 +44,17 @@ class DecodableString: Identifiable, Comparable, Equatable, Decodable {
             throw ApiError.cannotDecodeData(codingKey: lastCodingKey)
         }
     }
-    
-    
 }
 
 enum ApiError: Error {
     case cannotDecodeData(codingKey: CodingKey?)
+}
+
+
+struct User: Identifiable, Decodable {
+    typealias ID = DecodableString
+    
+    var id: ID
+    let name: String
+    let email: String
 }

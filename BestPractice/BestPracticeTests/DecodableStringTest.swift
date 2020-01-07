@@ -2,7 +2,7 @@ import XCTest
 import Foundation
 @testable import BestPractice
 
-class BestPracticeTests: XCTestCase {
+class DecodableStringTests: XCTestCase {
 
     func testCanDecodeUInt64AsDecodableString() {
         let data = """
@@ -25,11 +25,11 @@ class BestPracticeTests: XCTestCase {
            }
            """.data(using: .utf8)!
            
-           let stringFromUInt = (try? JSONDecoder().decode(ModelDecodable.self , from: data))?.stringValue ?? ""
+           let stringFromInt = (try? JSONDecoder().decode(ModelDecodable.self , from: data))?.stringValue ?? ""
            let nilParseResult = try? JSONDecoder().decode(ModelNotDecodable.self , from: data)
 
            XCTAssertNil(nilParseResult)
-           XCTAssertEqual(stringFromUInt, "-123123")
+           XCTAssertEqual(stringFromInt, "-123123")
        }
 
     func testCanDecodeDoubleAsDecodableString() {
@@ -39,11 +39,11 @@ class BestPracticeTests: XCTestCase {
         }
         """.data(using: .utf8)!
         
-        let stringFromUInt = (try? JSONDecoder().decode(ModelDecodable.self , from: data))?.stringValue ?? ""
+        let stringFromDouble = (try? JSONDecoder().decode(ModelDecodable.self , from: data))?.stringValue ?? ""
         let nilParseResult = try? JSONDecoder().decode(ModelNotDecodable.self , from: data)
         
         XCTAssertNil(nilParseResult)
-        XCTAssertEqual(stringFromUInt, "-123.2345")
+        XCTAssertEqual(stringFromDouble, "-123.2345")
     }
     
     func testCanDecodeStringAsDecodableString() {
@@ -53,8 +53,8 @@ class BestPracticeTests: XCTestCase {
         }
         """.data(using: .utf8)!
         
-        let stringFromUInt = (try? JSONDecoder().decode(ModelDecodable.self , from: data))?.stringValue ?? ""
-        XCTAssertEqual(stringFromUInt, "trivial case")
+        let stringFromString = (try? JSONDecoder().decode(ModelDecodable.self , from: data))?.stringValue ?? ""
+        XCTAssertEqual(stringFromString, "trivial case")
     }
     
     class ModelDecodable: Decodable {
