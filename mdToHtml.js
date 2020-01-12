@@ -38,7 +38,7 @@ fs.readFile(__dirname + '/style.css', function (err, styleData) {
     converter.setFlavor('github');
     console.log(html);
 
-    let filePath = process.cwd() + "/README.html";
+    let filePath = process.cwd() + "/index.html";
     fs.writeFile(filePath, html, { flag: "wx" }, function(err) {
       if (err) {
         console.log("File '" + filePath + "' already exists. Aborted!");
