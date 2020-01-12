@@ -57,8 +57,23 @@ class DecodableStringTests: XCTestCase {
         XCTAssertEqual(stringFromString, "trivial case")
     }
     
+    func testCanDecodeStringWithDefaultValue() {
+        let data = """
+        {
+            "stringMissing": "trivial case"
+        }
+        """.data(using: .utf8)!
+        
+        let stringFromNothing = try? JSONDecoder().decode(ModelDecodable.self , from: data).string
+        XCTAssertNotNil(stringFromNothing)
+        
+        XCTAssertEqual(stringFromNothing!.stringValue, "")
+        XCTAssertTrue(stringFromNothing!.isUsingDefaultValue)
+    }
+    
+    
     class ModelDecodable: Decodable {
-        let string: DecodableString
+        let string: DecodableStringWithDefaultValue
         
         var stringValue: String {
             return string.stringValue
