@@ -2,6 +2,20 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark as codeEditorTheme } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import '../App.css';
+
+const ReactMarkdown = require('react-markdown/with-html')
+
+class MarkdownView extends React.Component {
+    render() {
+        return (
+            <ReactMarkdown className='MarkdownView'
+                source={this.props.content}
+                renderers={{ code: CodeBlock }}
+            />
+        )
+    }
+}
 
 class CodeBlock extends PureComponent {
   static propTypes = {
@@ -15,12 +29,16 @@ class CodeBlock extends PureComponent {
 
   render() {
     const { language, value } = this.props;
+    const codeLanguage = language ? language.toLowerCase() : null;
+
     return (
-      <SyntaxHighlighter language={language.toLowerCase()} style={codeEditorTheme}>
-        {value}
+      <SyntaxHighlighter 
+        language={codeLanguage} 
+        style={codeEditorTheme}>   
+         {value}
       </SyntaxHighlighter>
     );
   }
 }
 
-export default CodeBlock;
+export default MarkdownView;
