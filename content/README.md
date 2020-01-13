@@ -40,7 +40,7 @@ For example, the JSON from our server is as follow
 
 The corresponding struct/class to parse data maybe as follow
 
-```Swift
+```swift
 struct User: Identifiable, Decodable {
     typealias ID = Int64
     
@@ -85,7 +85,7 @@ So the problem becomes how to define an object that can be used to parse `Number
 
 I have tried and failed a few times, most of the previous time my solution would not be fully compatible with `Decodable` or it is too complicated to use. Most of those issues are because I tried to implement it in existing codebase where my IDs are `String`. As a result, I wrote complicated generic wrapper around the data class and do crazy stuff, only to realize it cannot be used with objects which are nested or in an array. I avoided create a new String class because I think it would be tedious to replace code in multiple places. However, I try creating a new `String` wrapper class and use it as replacement for `String`, and the solution comes easily.
 
-```Swift
+```swift
 class DecodableString: Hashable, Comparable, Equatable, Decodable {
     // Sorting ID is a common functionality
     static func < (lhs: DecodableString, rhs: DecodableString) -> Bool {
@@ -230,7 +230,7 @@ In the previous section, I have introduced a better way to parse string from API
 
 As a result, we contain all usage `DecodableString` inside network model only. With this approach, we create two separate models. (I intentionally make the API model name ugly to discourage its use anywhere else.)
 
-```Swift
+```swift
 // For parsing API
 struct API_User: Decodable {
     private let id: DecodableString
@@ -335,7 +335,7 @@ struct API_User {
 
 When we read the coding key, we can obtain its `stringValue`. When an API [partially] fails, we can send this information to our logger.
 
-```swift
+```Swift
 // Example log
 func performLog(_ data: API_User) {
     let apiLog = APILog(apiType: .personalFeed, failKeys: data.codingKeysThatFail)
