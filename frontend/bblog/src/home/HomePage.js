@@ -3,26 +3,13 @@ import MarkdownView from '../shared/MarkdownView';
 
 
 class HomePage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            markdownContent: null
-        };
-    }
-
-    componentDidMount() {
-        fetch(this.props.blogRootPath)
-            .then(response => response.text())
-            .then(text => this.setState({ markdownContent: text}));
-    }
-
     render() {
-        return (
-            <MarkdownView 
-                content={this.state.markdownContent}
-            />
-
-        );
+      const blogs = this.props.blogsJson.data
+      return (
+        <div className="HomeContent">
+          { blogs.map(oneBlog => <MarkdownView content={oneBlog.content}/>) }
+        </div>
+      );
     }
 }
 

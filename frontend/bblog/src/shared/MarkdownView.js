@@ -9,7 +9,7 @@ const ReactMarkdown = require('react-markdown/with-html')
 class MarkdownView extends React.Component {
     render() {
         return (
-            <ReactMarkdown className='MarkdownView'
+            <ReactMarkdown className="MarkdownView"
                 source={this.props.content}
                 renderers={{ code: CodeBlock }}
             />
