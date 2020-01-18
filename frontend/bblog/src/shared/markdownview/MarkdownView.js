@@ -2,7 +2,8 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark as codeEditorTheme } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import '../App.css';
+import '../../App.css';
+import InlineCode from "./InlineCode";
 
 const ReactMarkdown = require('react-markdown/with-html')
 
@@ -11,7 +12,10 @@ class MarkdownView extends React.Component {
         return (
             <ReactMarkdown className="MarkdownView"
                 source={this.props.content}
-                renderers={{ code: CodeBlock }}
+                renderers={{ 
+                  code: CodeBlock, 
+                  inlineCode: InlineCode
+                }}
             />
         )
     }

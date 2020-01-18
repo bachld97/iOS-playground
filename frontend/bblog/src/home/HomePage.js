@@ -1,5 +1,5 @@
 import React from 'react';
-import MarkdownView from '../shared/MarkdownView';
+import MarkdownView from '../shared/markdownview/MarkdownView';
 
 
 class HomePage extends React.Component {
