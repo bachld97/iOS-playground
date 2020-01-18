@@ -8,7 +8,7 @@ As an iOS developers, we have to deal with the response from our Backend Servers
 
 To decode JSON data, there are a tedious way, an okay way, and an easy way. Let's walk through each of the methods that can be used to parse JSON.
 
-## Treat JSON as [String : Any]
+## Treat JSON as \[String : Any\]
 
 Any JSON object has keys and values, therefore we almost instantly think of treating it as a dictionary. To parse `JSON` as dictionary, we use `JsonSerialization` class.
 
