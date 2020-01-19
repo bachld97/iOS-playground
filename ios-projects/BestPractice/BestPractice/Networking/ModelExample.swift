@@ -1,48 +1,48 @@
 import Foundation
 
-struct API_User: Decodable {
-    private lazy var id: String  = {
-        return _id?.stringValue ?? "Default value" // This makes no sense by the way
-    }()
+class API_User: Decodable {
+    private let id: DecodableString
   
     private lazy var name: String = {
-        return _name ?? "Default value"
+        if _name == nil {
+            codingKeysThatFails.append(CodingKeys._name)
+            return "bachld"
+        }
+        
+        return _name!
     }()
 
     private lazy var email: String = {
         if _email == nil {
             codingKeysThatFails.append(CodingKeys._email)
-            return "Default value"
+            return "bachld@email.com"
         }
         
-        return _email ?? "Default value"
+        return _email!
     }()
   
-    private let _id: DecodableString?
     private let _name: String?
     private let _email: String?
   
-    mutating func domainUser() -> User {
-      return User(id: id, name: name, email: email)
+    var domainUser: User {
+        return User(id: id.stringValue, name: name, email: email)
     }
   
     var isResponseFullyParsable: Bool {
-        return _id != nil && _name != nil && _email != nil
+        return _name != nil && _email != nil
     }
     
     var codingKeysThatFails: [CodingKey] = []
-    
-    static var testCodingKey: CodingKey = CodingKeys._id
   
-    private enum CodingKeys: String, CodingKey {
-        case _id = "id"
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
         case _name = "name"
         case _email = "email"
     }
 }
 
 // For domain usage
-struct User: Identifiable {
+struct User: Identifiable, Equatable {
     typealias ID = String
     
     var id: ID

@@ -8,13 +8,6 @@
 
 import Foundation
 
-class DecodableStringWithDefaultValue: DecodableString {
-    required init(from decoder: Decoder) throws {
-        try super.init(from: decoder, defaultValue: "")
-    }
-}
-
-
 class DecodableString: Hashable, Comparable, Equatable, Decodable {
     static func < (lhs: DecodableString, rhs: DecodableString) -> Bool {
         return lhs.stringValue < rhs.stringValue

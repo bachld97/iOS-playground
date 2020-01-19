@@ -57,35 +57,33 @@ Now that we have separated the API model from our domain model, we can introduce
 For example, to introduce default value to our domain model, we can modify our API model as follows:
 
 ```swift
-struct API_User: Decodable {
-    private lazy var id: String  = {
-        return _id?.stringValue ?? "Default value" // This makes no sense by the way
-    }()
+// We replace the use of struct by class because using struct here complicates our
+// testing code. This model is never used outside the scope of parsing API response
+// so it is not neccessary to use struct here.
+class API_User: Decodable {
+    private let id: DecodableString
   
     private lazy var name: String = {
-        return _name ?? "Default value"
+        return _name ?? "Default name"
     }()
 
     private lazy var email: String = {
-        return _email ?? "Default value"
+        return _email ?? "Default email"
     }()
   
-    private let _id: String
     private let _name: String
     private let _email: String
   
-    // Because lazy var get initialized when we access it, this function has to be marked mutating.
-    // If you choose to use struct instead of class, you can ignore this alteration.
-    mutating func domainUser() -> User {
+    var domainUser: User {
       return User(id: id.stringValue, name: name, email: email)
     }
   
     var isResponseFullyParsable: Bool {
-        return _id != nil && _name != nil && _email != nil
+        return _name != nil && _email != nil
     }
   
     private enum CodingKeys: String, CodingKey {
-        case _id = "id"
+        case id = "id"
         case _name = "name"
         case _email = "email"
     }
@@ -95,7 +93,7 @@ struct API_User: Decodable {
 With this implementation, we can figure out which API fails partially, take log it, and then notify our Backend Engineers to diagnose the problem. However, we can do better. With the current implementation we can only log that the API call is failing, but no information about which particular key failed to parse. We can take a step further and do something like this.
 
 ```swift
-struct API_User {
+class API_User {
     // Similar for other variables
     private lazy var email: String {
         if _email == nil {
@@ -122,3 +120,58 @@ func performLog(_ data: API_User) {
     APILogger.shared.submitLog(apiLog)
 }
 ```
+
+The downside to this implementation is that we cannot access `codingKeysThatFails` before getting the `domainUser`.
+If you do access it before accessing `domainUser`, the array would be empty because we construct the coding keys array only when we access id/name/email.
+
+Simple unit test to demo `API_User` class:
+
+```swift
+class API_UserTests: XCTestCase {
+
+    func testCanDecodeMissingName() {
+        let data = """
+        {
+            "id": "user01",
+            "email": "user01@mail.com"
+        }
+        """.data(using: .utf8)!
+        
+        let apiUser = try? JSONDecoder().decode(API_User.self, from: data)
+        
+        XCTAssertNotNil(apiUser)
+
+        XCTAssertFalse(apiUser!.isResponseFullyParsable)
+        
+        let user = apiUser?.domainUser
+        XCTAssertNotNil(user)
+        XCTAssertEqual(user!, User(id: "user01", name: "bachld", email: "user01@mail.com"))
+        XCTAssertTrue(
+            apiUser!.codingKeysThatFails.contains(where: { $0.stringValue == API_User.CodingKeys._name.stringValue })
+        )
+    }
+    
+    func testCanDecodeMissingEmail() {
+        let data = """
+        {
+            "id": "user01",
+            "name": "Bach Le"
+        }
+        """.data(using: .utf8)!
+        
+        let apiUser = try? JSONDecoder().decode(API_User.self, from: data)
+        
+        XCTAssertNotNil(apiUser)
+        XCTAssertFalse(apiUser!.isResponseFullyParsable)
+        
+        let user = apiUser?.domainUser
+        XCTAssertNotNil(user)
+        XCTAssertEqual(user!, User(id: "user01", name: "Bach Le", email: "bachld@email.com"))
+        
+        XCTAssertTrue(
+            apiUser!.codingKeysThatFails.contains(where: { $0.stringValue == API_User.CodingKeys._email.stringValue })
+        )
+    }
+}
+```
+
