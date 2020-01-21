@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 
-import blogsJson from './content/blog/blog.json';
-import PersistentHeader from './shared/PersistentHeader';
-import HomePage from './home/HomePage';
+import PersistentHeader from './shared/PersistentHeader'
+import BlogList from './home/BlogList';
 
+const blogListPath = 'content/blog/list.json'
 
 class App extends React.Component {
 
@@ -12,7 +12,7 @@ class App extends React.Component {
 		return (
 			<div className="App">
 				<PersistentHeader />
-        <HomePage blogsJson={blogsJson}/>
+        <BlogList blogs={blogListPath}/>
 			</div>
 		);
 	}

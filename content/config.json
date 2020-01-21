@@ -1,0 +1,15 @@
+{
+  "posts": [1, 2],
+  "postTitleById": {
+    1: "",
+    2: ""
+  },
+  "postDescriptionById": {
+    1: "",
+    2: ""
+  },
+  "postPathById": {
+    1: "",
+    2: ""
+  }
+}

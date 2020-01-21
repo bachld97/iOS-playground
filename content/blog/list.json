@@ -1,0 +1,15 @@
+{
+  "id": ["1", "2"],
+  "titleById": {
+    "1": "First blog",
+    "2": "Second blog"
+  },
+  "descriptionById": {
+    "1": "First description",
+    "2": "Second description"
+  },
+  "detailPathById": {
+    "1": "content/blog/01_decodable.md",
+    "2": "content/blog/02_fail_validated_network.md"
+  }
+}
