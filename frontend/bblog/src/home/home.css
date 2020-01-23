@@ -1,10 +1,10 @@
 .BlogCell {
-  background-color: #d0d0d0;
-  border-radius: 12px;
-  margin: 20px;
-  padding: 1px 8px 4px;
+	background-color: #d0d0d0;
+	border-radius: 12px;
+	margin: 20px;
+	padding: 1px 8px 4px;
 }
 
 .BlogCell:hover {
-  background-color: #909090;
+	background-color: #909090;
 }

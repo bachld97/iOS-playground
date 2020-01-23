@@ -13,14 +13,15 @@ class BlogList extends React.Component {
 
   blogNotNull(blogs, id) {
     return (
-      id in blogs['titleById'] &&
-      id in blogs['descriptionById'] &&
-      id in blogs['detailPathById']
+        id in blogs.details &&
+        blogs.details[id].title &&
+        blogs.details[id].description &&
+        blogs.details[id].path
     )
   }
 
   blogCellOnClick(blogId) {
-    console.log(blogId)
+    window.history.pushState({ blogId }, 'Hello World', `/blog/${blogId}/`);
   }
 
   render() {
@@ -37,9 +38,9 @@ class BlogList extends React.Component {
               <BlogCell 
                 key={id}
                 id={id} 
-                title={blogs['titleById'][id]}
-                description={blogs['descriptionById'][id]}
-                detailPath={blogs['detailPathById'][id]}
+                title={blogs.details[id].title}
+                description={blogs.details[id].description}
+                detailPath={blogs.details[id].path}
                 onClick={() => this.blogCellOnClick(id)}
               />
             )
