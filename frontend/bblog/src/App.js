@@ -41,6 +41,8 @@ class App extends React.Component {
     pageTypeFromState(state) {
         const url = state.url
 
+        console.log(url);
+
         if (PageRegEx.BLOG_DETAIL.test(url)) {
             return PageType.BLOG_DETAIL;
         }

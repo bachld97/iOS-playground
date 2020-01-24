@@ -4,6 +4,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark as codeEditorTheme } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import '../../App.css';
 import InlineCode from "./InlineCode";
+import MarkdownLink from "./MarkdownLink";
 
 const ReactMarkdown = require('react-markdown/with-html')
 
@@ -14,7 +15,8 @@ class MarkdownView extends React.Component {
                 source={this.props.content}
                 renderers={{ 
                   code: CodeBlock, 
-                  inlineCode: InlineCode
+                  inlineCode: InlineCode,
+                  link: MarkdownLink,
                 }}
             />
         )
