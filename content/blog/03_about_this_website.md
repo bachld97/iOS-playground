@@ -48,9 +48,21 @@ The detail page is rendered using Markdown.
 The page is working as expected when loaded from the home page.
 However, navigate directly to detail page resulted in Netlify's 404 page.
 
-## Summary
+## Summary so far
 
 In summary, the website is hosted statically using Netlify.
 The frontend is created using ReactJS, and the content is rendered as Markdown.
 
 There are two problems left: handling response when users go directly into detail page and handle security certificate problem when the users do not enter subdomain to the website (accessing [bachld.xyz](https://bachld.xyz) instead of [www.bachld.xyz](https://www.bachld.xyz).
+
+## Redirects
+
+As it turns out, configuring Netlify for routing is easy.
+To accomodate single page application, I simply need to direct all request to `index.html`.
+We can do that by simply adding Netlify `_redirects` file:
+```
+/* index.html 200
+```
+
+Which means: for any page, direct it to `index.html` with response code 200 OK.
+
