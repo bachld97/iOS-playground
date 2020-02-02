@@ -1,5 +1,5 @@
 {
-    "id": ["3", "2", "1"],
+    "id": ["4", "3", "2", "1"],
     "details": {
         "1": { 
             "title": "Using Decodable to parse JSON",
@@ -15,6 +15,11 @@
             "title": "About this site",
             "description": "This is the first time I learn to create and host a website. There are a lot I have learned, and there are also a lot more for me to learn. This article describes the process in which I create the website. There are still problems to be solved, and I am actively seeking for the solution...",
             "path": "content/blog/03_about_this_website.md"
+        },
+        "4": {
+            "title": "Better base UIViewController",
+            "description": "We should not waste so much time reimplementing popular features for our UIViewController. As a result, let us create a super efficient base ViewController so that we can override later on.",
+            "path": "content/blog/04_base_viewcontroller.md"
         }
     }
 }
