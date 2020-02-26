@@ -13,11 +13,33 @@ class BlogList extends React.Component {
 
   blogNotNull(blogs, id) {
     return (
-        id in blogs.details &&
-        blogs.details[id].title &&
-        blogs.details[id].description &&
-        blogs.details[id].path
+      id in blogs.details &&
+      blogs.details[id].title &&
+      blogs.details[id].description &&
+      blogs.details[id].path
     )
+  }
+
+  blogCanShow(blogs, id, isFilter, tagsToFilter) {
+    if (!isFilter) {
+      return true;
+    }
+
+    const tagsOfPost = blogs.details[id].tags;
+    if (tagsOfPost == null) {
+      console.log('Meh');
+      return false;
+    }
+
+    var postIsIncluded = false;
+    for (let postTag of tagsOfPost) {
+      for (let filterTag of tagsToFilter) {
+        if (postTag.toLowerCase() === filterTag.toLowerCase()) {
+          postIsIncluded = true;
+        }
+      }
+    }
+    return postIsIncluded;
   }
 
   blogCellOnClick(blogId) {
@@ -29,11 +51,15 @@ class BlogList extends React.Component {
       return null;
     }
     const blogs = this.state.blogs
+    const isFilter = this.props.isFilter
+    const tagsToFilter = this.props.tagsToFilter
     const blogIds = blogs['id']
+
     return (
       <div>
         { blogIds
             .filter(id => this.blogNotNull(blogs, id))
+            .filter(id => this.blogCanShow(blogs, id, isFilter, tagsToFilter))
             .map(id => 
               <BlogCell 
                 key={id}
