@@ -9,8 +9,11 @@
 import Foundation
 
 class DecodableString: Decodable {
-
     let stringValue: String
+    
+    init(string: String) {
+        self.stringValue = string
+    }
     
     required init(from decoder: Decoder) throws {
         var result: String?
@@ -19,13 +22,13 @@ class DecodableString: Decodable {
         result = try? "\(decoder.singleValueContainer().decode(UInt64.self))"
         result = result ?? (try? "\(decoder.singleValueContainer().decode(Int64.self))")
         result = result ?? (try? "\(decoder.singleValueContainer().decode(Double.self))")
-        result = result ?? (try? (decoder.singleValueContainer().decode(String.self)))
-        
+        result = result ?? (try? decoder.singleValueContainer().decode(String.self))
+       
         if let result = result {
             stringValue = result
         } else {
-            let lastCodingKey = decoder.codingPath.last
-            throw APIError.cannotDecodeData(codingKey: lastCodingKey)
+            // Throw Error
+            stringValue = ""
         }
     }
 }
