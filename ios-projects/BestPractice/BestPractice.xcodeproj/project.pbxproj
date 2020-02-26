@@ -11,6 +11,9 @@
 		3C4952AB23E5510D00D1B102 /* LifecycleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4952AA23E5510D00D1B102 /* LifecycleViewController.swift */; };
 		3C4952AF23E55A6900D1B102 /* DebugMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4952AE23E55A6900D1B102 /* DebugMessage.swift */; };
 		3C53BE7423CA180E00CF3A6E /* ModelExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C53BE7323CA180E00CF3A6E /* ModelExample.swift */; };
+		3C6F377E23EE5F7100D9B4DF /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6F377D23EE5F7100D9B4DF /* APIError.swift */; };
+		3C93663623EDA8F900E8260A /* URLSessionWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C93663523EDA8F900E8260A /* URLSessionWebService.swift */; };
+		3C93663823EDB08500E8260A /* SomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C93663723EDB08500E8260A /* SomeRepository.swift */; };
 		3CB2443E23C4B86900027830 /* DecodableString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCB57FC23C4A8F600C259D2 /* DecodableString.swift */; };
 		3CB9560523D4067400F1AB80 /* API_UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB9560423D4067400F1AB80 /* API_UserTests.swift */; };
 		3CCB57CC23C4A84D00C259D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCB57CB23C4A84D00C259D2 /* AppDelegate.swift */; };
@@ -46,6 +49,9 @@
 		3C4952AA23E5510D00D1B102 /* LifecycleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifecycleViewController.swift; sourceTree = "<group>"; };
 		3C4952AE23E55A6900D1B102 /* DebugMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugMessage.swift; sourceTree = "<group>"; };
 		3C53BE7323CA180E00CF3A6E /* ModelExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelExample.swift; sourceTree = "<group>"; };
+		3C6F377D23EE5F7100D9B4DF /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		3C93663523EDA8F900E8260A /* URLSessionWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionWebService.swift; sourceTree = "<group>"; };
+		3C93663723EDB08500E8260A /* SomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeRepository.swift; sourceTree = "<group>"; };
 		3CB9560423D4067400F1AB80 /* API_UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API_UserTests.swift; sourceTree = "<group>"; };
 		3CCB57C823C4A84D00C259D2 /* BestPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CCB57CB23C4A84D00C259D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +124,9 @@
 			children = (
 				3CCB57FC23C4A8F600C259D2 /* DecodableString.swift */,
 				3C53BE7323CA180E00CF3A6E /* ModelExample.swift */,
+				3C93663523EDA8F900E8260A /* URLSessionWebService.swift */,
+				3C93663723EDB08500E8260A /* SomeRepository.swift */,
+				3C6F377D23EE5F7100D9B4DF /* APIError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -310,14 +319,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C93663623EDA8F900E8260A /* URLSessionWebService.swift in Sources */,
 				3C53BE7423CA180E00CF3A6E /* ModelExample.swift in Sources */,
 				3C4952AF23E55A6900D1B102 /* DebugMessage.swift in Sources */,
 				3CCB57D023C4A84D00C259D2 /* ViewController.swift in Sources */,
 				3C4952AB23E5510D00D1B102 /* LifecycleViewController.swift in Sources */,
+				3C93663823EDB08500E8260A /* SomeRepository.swift in Sources */,
 				3CCB57CC23C4A84D00C259D2 /* AppDelegate.swift in Sources */,
 				3CCB57FD23C4A8F600C259D2 /* DecodableString.swift in Sources */,
 				3C4952A923E5454A00D1B102 /* OrientationHelper.swift in Sources */,
 				3CCB57CE23C4A84D00C259D2 /* SceneDelegate.swift in Sources */,
+				3C6F377E23EE5F7100D9B4DF /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 {
-    "id": ["4", "3", "2", "1"],
+    "id": ["5","4", "3", "2", "1"],
     "details": {
         "1": { 
             "title": "Using Decodable to parse JSON",
@@ -23,6 +23,12 @@
             "title": "Better base UIViewController",
             "description": "We should not waste so much time reimplementing popular features for our UIViewController. As a result, let us create a super efficient base ViewController so that we can override later on.",
             "path": "content/blog/04_base_viewcontroller.md",
+            "tags": ["ios"]
+        },
+        "5": {
+            "title": "Managing network calls",
+            "description":"There are two sides of a network call, the request and the response. I have already covered handling API response, now let us have a look at handling the request. In particular, we want a clear call site and reduced repetitiveness when we code. Let us introduce, a WebService object.",
+            "path": "content/blog/05_webservice.md",
             "tags": ["ios"]
         }
     }
