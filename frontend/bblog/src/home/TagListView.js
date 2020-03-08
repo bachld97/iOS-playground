@@ -22,7 +22,7 @@ class TagListView extends React.Component {
   }
 
   cellForTagApplyingFilter(tag, tagsToFilter) {
-    const isSelected = tagsToFilter.includes(tag);
+    const isSelected = tagsToFilter != null && tagsToFilter.includes(tag);
     return (
       <TagCell key={tag} tag={tag} isSelected={isSelected} onClick={() => this.tagCellOnClick(tag)}/>
     );
