@@ -4,9 +4,10 @@ import './App.css';
 import PersistentHeader from './shared/PersistentHeader'
 import BlogList from './home/BlogList';
 import BlogDetail from './blog/BlogDetail';
+import TagListView from './home/TagListView';
 
 const blogListPath = '/content/blog/list.json';
-
+const tagListPath = '/content/blog/tags.json';
 
 const PageType  = {
   BLOG_LIST: 'Home',
@@ -26,6 +27,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <PersistentHeader />
+        <TagListView tags={tagListPath}/>
         <BlogList blogs={blogListPath} isFilter={isFilter} tagsToFilter={tagsToFilter} src={src}/>
       </div>
     )

@@ -43,7 +43,7 @@ class BlogList extends React.Component {
   }
 
   blogCellOnClick(blogId) {
-    window.history.pushState({ blogId }, 'Hello World', `/blog/${blogId}/`);
+    window.history.pushState({ blogId }, `BlogDetail?id=${blogId}`, `/blog/${blogId}/`);
   }
 
   render() {
@@ -56,7 +56,7 @@ class BlogList extends React.Component {
     const blogIds = blogs['id']
 
     return (
-      <div>
+      <div className="BlogList">
         { blogIds
             .filter(id => this.blogNotNull(blogs, id))
             .filter(id => this.blogCanShow(blogs, id, isFilter, tagsToFilter))
@@ -79,7 +79,7 @@ class BlogList extends React.Component {
 class BlogCell extends React.Component {
   render() {
     return (
-      <div className='BlogCell' onClick={this.props.onClick}>
+      <div className='BlogCell Selectable' onClick={this.props.onClick}>
         <h1> { this.props.title } </h1>
         <p> { this.props.description } </p>
       </div>
