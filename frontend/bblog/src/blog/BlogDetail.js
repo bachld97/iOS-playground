@@ -1,5 +1,6 @@
 import React from 'react';
 import MarkdownView from '../shared/markdownview/MarkdownView'
+import './detail.css'
 
 export default class BlogDetail extends React.Component {
   componentDidMount() {
@@ -25,6 +26,10 @@ export default class BlogDetail extends React.Component {
     if (this.state == null || this.state.content == null) {
       return null;
     }
-    return <MarkdownView content={this.state.content}/>;
+    return (
+      <div className="DetailPage">
+        <MarkdownView content={this.state.content}/>
+      </div>
+    );
   }
 }

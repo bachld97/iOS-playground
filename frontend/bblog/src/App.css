@@ -33,7 +33,7 @@ p {
 .App-header {
   padding: 3vh 2vw;
   min-height: 20vh;
-  background-color: #282c34;
+  background-color: #181c24;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,19 +50,5 @@ p {
   flex-direction: column;
 }
 
-.MarkdownView {
-  padding: 1vh 15% 2%;
-  background-color: #d6d4d4;
-}
+.MarkdownView { }
 
-.MarkdownView h1, h2, h3 {
-  font-family: HeaderFont;
-  margin-bottom: -12px;
-}
-
-.MarkdownView p {
-  font-family: BodyFont;
-  font-size: 18px;
-  line-height: 1.3;
-  margin-bottom: -4px;
-}
