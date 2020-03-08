@@ -21,6 +21,13 @@ class TagListView extends React.Component {
     window.history.pushState({ }, `BlogByTag?id=${tag}`, `/tag/${tag}/`);
   }
 
+  cellForTagApplyingFilter(tag, tagsToFilter) {
+    const isSelected = tagsToFilter.includes(tag);
+    return (
+      <TagCell key={tag} tag={tag} isSelected={isSelected} onClick={() => this.tagCellOnClick(tag)}/>
+    );
+  }
+
   render() {
     if (this.state == null) {
       return null;
@@ -29,9 +36,7 @@ class TagListView extends React.Component {
     const tags = this.state.tagData.tags;
     return (
       <div className="TagListContainer">
-        { 
-          tags.map(tag => <TagCell key={tag} tag={tag} onClick={() => this.tagCellOnClick(tag)}/>) 
-        }
+        { tags.map(tag => this.cellForTagApplyingFilter(tag, this.props.tagsToFilter)) }
       </div>
     );
   }
@@ -39,8 +44,9 @@ class TagListView extends React.Component {
 
 class TagCell extends React.Component {
   render() {
+    const className = this.props.isSelected ? "TagListCellSelected" : "TagListCell Selectable";
     return (
-      <div className="TagListCell Selectable" onClick={this.props.onClick}>
+      <div className={className} onClick={this.props.onClick}>
       <p> {this.props.tag} </p>
     </div>
     );

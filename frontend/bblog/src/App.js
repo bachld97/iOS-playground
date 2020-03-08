@@ -27,7 +27,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <PersistentHeader />
-        <TagListView tags={tagListPath}/>
+        <TagListView tags={tagListPath} tagsToFilter={tagsToFilter}/>
         <BlogList blogs={blogListPath} isFilter={isFilter} tagsToFilter={tagsToFilter} src={src}/>
       </div>
     )

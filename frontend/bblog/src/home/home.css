@@ -43,6 +43,19 @@
   background: #f6f4f4;
 }
 
+.TagListCellSelected {
+  display: inline-block;
+  float: none; border-radius: 20px;
+  margin: 6px 8px;
+  padding: 0px 24px 0px;
+  background: #181c24
+}
+
+.TagListCellSelected p {
+  color: #f6f4f4;
+  font-weight: bold;
+}
+
 .TagListCell p {
   color: #2a2e2c;
   font-weight: bold;
