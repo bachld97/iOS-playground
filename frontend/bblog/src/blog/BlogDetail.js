@@ -15,7 +15,7 @@ export default class BlogDetail extends React.Component {
   }
 
   fetchContentFromPath(path) {
-    fetch(path)
+    fetch(`/${path}`)
       .then(response => response.text())
       .then(text => this.setState({ content: text })
       );
