@@ -16,23 +16,23 @@
 
 .BlogCell p {
   color: #282c34;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .BlogCell h1 {
   color: #2B2B2B;
   margin-bottom: -16px;
-  font-size: 36px;
+  font-size: 32px;
 }
 
 .TagListContainer {
-  display: flex;
-  justify-content: center;
   background: #34364a;
   padding-top: 4px;
   padding-bottom: 4px;
   white-space: nowrap;
   overflow: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .TagListCell {
