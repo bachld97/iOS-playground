@@ -5,31 +5,31 @@
             "title": "Using Decodable to parse JSON",
             "description": "Weather, emails, social media updates, ... Information is ubiquitous in the age of technology, and our mobile devices are an innovative ways to spread data. Most of our mobile applications nowadays are connected to at least one Backend Server. This can be as a mean process data and synchronize them accross your personal devices (Evernote, OneNote, Google Keep, etc.), or this can serve as a mean to connect people (think Email, Facebook, Youtube, etc.).  As an iOS developers, we have to deal with the response from our Backend Servers using Apple's SDK for iPhones and iPads. Most of the time, this information is given to us in the form of JSON objects (JavaScript Object Notation).  To decode JSON data, there are a tedious way, an okay way, and an easy way. Let's walk through each of the methods that can be used to parse JSON.",
             "path": "content/blog/01_decodable.md",
-            "tags": ["ios"]
+            "tags": ["ios", "networking", "developer"]
         },
         "2": {
             "title": "Fail validated networking",
             "description": "In a few occasions, some of the field in JSON response from our Backend Server is missing, or invalid. When such events occur, the whole API request fails, rendering the current page with an empty space or ugly error message prompting to reload. As client-side engineer, we should be safe guard our application against such anomaly and try not to interupt the flow of our users. Note that when we handle defects, we do not want to swallow the error. We will have to find a way to notify our Backend Engineers of the problem. If the Backend Server deliver errornous data, telling them details on which field of the response causes the error would accelerate the debuging process.",
             "path": "content/blog/02_fail_validated_network.md",
-            "tags": ["ios"]
+            "tags": ["ios", "networking", "developer"]
         },
         "3": {
             "title": "About this site",
             "description": "This is the first time I learn to create and host a website. There are a lot I have learned, and there are also a lot more for me to learn. This article describes the process in which I create the website. There are still problems to be solved, and I am actively seeking for the solution...",
             "path": "content/blog/03_about_this_website.md",
-            "tags": ["ios"]
+            "tags": ["developer"]
         },
         "4": {
             "title": "Better base UIViewController",
             "description": "We should not waste so much time reimplementing popular features for our UIViewController. As a result, let us create a super efficient base ViewController so that we can override later on.",
             "path": "content/blog/04_base_viewcontroller.md",
-            "tags": ["ios"]
+            "tags": ["ios", "developer"]
         },
         "5": {
             "title": "Managing network calls",
             "description":"There are two sides of a network call, the request and the response. I have already covered handling API response, now let us have a look at handling the request. In particular, we want a clear call site and reduced repetitiveness when we code. Let us introduce, a WebService object.",
             "path": "content/blog/05_webservice.md",
-            "tags": ["ios"]
+            "tags": ["ios", "networking", "developer"]
         }
     }
 }
