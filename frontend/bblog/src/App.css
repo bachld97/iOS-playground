@@ -1,3 +1,21 @@
+@font-face {
+  font-family: HeaderFont;
+  src: url(/SF-UI-Text-Heavy.otf);
+}
+
+@font-face {
+  font-family: BodyFont;
+  src: url(/SF-UI-Text-Regular.otf);
+}
+
+h1 {
+  font-family: HeaderFont;
+}
+
+p {
+  font-family: BodyFont;
+}
+
 .App {
   display: flex;
   flex-flow: column;
@@ -20,7 +38,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 1vh);
+  font-size: calc(16px + 1vh);
   color: white;
 }
 

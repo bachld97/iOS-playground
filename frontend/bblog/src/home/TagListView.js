@@ -3,11 +3,18 @@ import './home.css'
 
 class TagListView extends React.Component {
   componentDidMount() {
+    this.mounted = true;
     fetch(this.props.tags)
       .then(response => response.json())
       .then(data => {
-        this.setState({tagData: data})
+        if (this.mounted) {
+          this.setState({tagData: data});
+        }
       });
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   tagCellOnClick(tag) {

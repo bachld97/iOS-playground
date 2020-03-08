@@ -2,13 +2,19 @@ import React from 'react';
 import './home.css'
 
 class BlogList extends React.Component {
-
   componentDidMount() {
+    this.mounted = true;
     fetch(this.props.blogs)
       .then(response => response.json())
       .then(data => {
-        this.setState({blogs: data})
+        if (this.mounted) {
+          this.setState({blogs: data})
+        }
       });
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   blogNotNull(blogs, id) {
