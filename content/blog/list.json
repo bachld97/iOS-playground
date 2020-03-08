@@ -30,11 +30,17 @@
       "description":"There are two sides of a network call, the request and the response. I have already covered handling API response, now let us have a look at handling the request. In particular, we want a clear call site and reduced repetitiveness when we code. Let us introduce, a WebService object.",
       "path": "content/blog/05_webservice.md",
       "tags": ["ios", "networking", "developer"]
-    }
+    },
     "6": {
       "title": "La Vie En Rose - My Life in Pink.",
       "description": "I started regular exercise for a month and be more mindful when I read. I find that I enjoy bits of my daily life more and more.",
       "path": "content/blog/07_LaVieEnRose.md",
+      "tags": ["life"]
+    },
+    "7": {
+      "title": "Runnnnn - Open chapter",
+      "description": "I am learning to write short fiction story. This is my first few paragraphs so far",
+      "path": "content/blog/08_RunningAffair_01.md",
       "tags": ["life"]
     }
   }
