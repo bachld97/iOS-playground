@@ -3,7 +3,9 @@
   transform: scale(1.05);
 }
 
-.Selectable { }
+.Selectable { 
+  transition: all .15s ease-in-out;
+}
 
 .BlogCell {
 	border-radius: 16px;
