@@ -17,14 +17,27 @@ class TagListView extends React.Component {
     this.mounted = false;
   }
 
-  tagCellOnClick(tag) {
-    window.history.pushState({ }, `BlogByTag?id=${tag}`, `/tag/${tag}/`);
+  tagCellOnClick(tag, currentFilter) {
+    var newFilter = null;
+    if (currentFilter == null) {
+      newFilter = tag;
+    } else if (currentFilter.includes(tag)) {
+      newFilter = currentFilter.filter(value => value !== tag).join('&');
+    } else {
+      currentFilter.push(tag);
+      newFilter = currentFilter.join('&');
+    }
+
+    window.history.pushState({ }, `BlogByTag?tags=${newFilter}`, `/tag/${newFilter}/`);
   }
 
   cellForTagApplyingFilter(tag, tagsToFilter) {
     const isSelected = tagsToFilter != null && tagsToFilter.includes(tag);
     return (
-      <TagCell key={tag} tag={tag} isSelected={isSelected} onClick={() => this.tagCellOnClick(tag)}/>
+      <TagCell 
+        key={tag} tag={tag} isSelected={isSelected} 
+        onClick={() => this.tagCellOnClick(tag, tagsToFilter)}
+      />
     );
   }
 
@@ -44,11 +57,12 @@ class TagListView extends React.Component {
 
 class TagCell extends React.Component {
   render() {
-    const className = this.props.isSelected ? "TagListCellSelected" : "TagListCell Selectable";
+    const className = this.props.isSelected ? "TagListCellSelected Selectable" : "TagListCell Selectable";
+    const onClick = this.props.onClick;
     return (
-      <div className={className} onClick={this.props.onClick}>
-      <p> {this.props.tag} </p>
-    </div>
+      <div className={className} onClick={onClick}>
+        <p> {this.props.tag} </p>
+      </div>
     );
   }
 }

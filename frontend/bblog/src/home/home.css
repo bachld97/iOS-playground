@@ -1,17 +1,15 @@
 .Selectable:hover {
   cursor: pointer;
-	background-color: #c9ccd6;
+  transform: scale(1.05);
 }
 
-.Selectable {
-  background: #d6d4d4;
-}
-
+.Selectable { }
 
 .BlogCell {
 	border-radius: 16px;
 	margin: 18px 16%;
 	padding: 2px 48px 8px;
+  background-color: #FFFFFF;
 }
 
 .BlogCell p {
@@ -48,7 +46,11 @@
   float: none; border-radius: 20px;
   margin: 6px 8px;
   padding: 0px 24px 0px;
-  background: #181c24
+  background: #181c24;
+  
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10+ and Edge */
+  user-select: none; /* Standard syntax */
 }
 
 .TagListCellSelected p {
@@ -59,6 +61,10 @@
 .TagListCell p {
   color: #2a2e2c;
   font-weight: bold;
+
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10+ and Edge */
+  user-select: none; /* Standard syntax */
 }
 
 

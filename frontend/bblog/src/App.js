@@ -17,7 +17,7 @@ const PageType  = {
 
 const PageRegEx = {
   BLOG_DETAIL: new RegExp('blog/[0-9]+'),
-  BLOG_BY_TAG: new RegExp('tag/[a-zA-Z]+'),
+  BLOG_BY_TAG: new RegExp('tag/[a-zA-Z]+(&[a-zA-Z]+)*'),
 };
 
 class App extends React.Component {
@@ -83,8 +83,8 @@ class App extends React.Component {
           tags = [tag]
         } else {
           const urlParts = this.state.url.split('/');
-          const tag = urlParts.pop() || urlParts.pop(); // Ignore trailing /
-          tags = [tag];
+          const tagList = urlParts.pop() || urlParts.pop(); // Ignore trailing /
+          tags = tagList.split('&');
         }
         return this.blogListPage(tags, 'filterPostsWithTag');
       default:
