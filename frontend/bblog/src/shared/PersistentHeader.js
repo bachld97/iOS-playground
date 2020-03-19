@@ -12,8 +12,9 @@ class PersistentHeader extends React.Component {
             alt='Avatar' 
           />
           <h1> 
-            BBlog - BachLD
+            Le Duy Bach
           </h1>
+          <a href="https://medium.com/@ldbach97">Click to visit me on Medium!!</a>
         </div>
       );
     }
