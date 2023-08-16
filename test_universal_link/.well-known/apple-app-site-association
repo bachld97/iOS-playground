@@ -1,13 +1,15 @@
 {
   "applinks": {
-    "appIDs": [ "Q29GJGNJ8F.vn.com.epi.BaoMoi"],
-    "components": [
-    {
-      "/": "*/c/*",
-      "comment": "Contents"
-    },
-    { 
-      "/": "/c/*"
-    }]
+    "details": [
+      {
+        "appIDs": [ "Q29GJGNJ8F.vn.com.epi.BaoMoi"],
+        "components": [
+        {
+          "/": "/*/c/*",
+          "?": {"uni": "YES"},
+          "comment": "https://baomoi.com/slugified-title/c/contentid.epi"
+        }]
+      }
+    ]
   }
 }

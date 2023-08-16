@@ -1,4 +1,4 @@
 /.well-known/apple-app-site-association
     Cache-Control: public, max-age=0
-    Content-Type: application/json
+    Content-Type: application/pkcs7-mime
     X-Content-Type-Options: nosniff
