@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "appIDs": [ "Q29GJGNJ8F.vn.com.epi.BaoMoi"],
+    "components": [
+    {
+      "/": "*/c/*",
+      "comment": "Contents"
+    },
+    { 
+      "/": "/c/*"
+    }]
+  }
+}
