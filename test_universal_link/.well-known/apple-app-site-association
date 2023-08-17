@@ -4,11 +4,17 @@
       {
         "appIDs": [ "Q29GJGNJ8F.vn.com.epi.BaoMoi"],
         "components": [
-        {
-          "/": "/*/c/*",
-          "?": {"uni": "YES"},
-          "comment": "https://baomoi.com/slugified-title/c/contentid.epi"
-        }]
+          {
+            "/": "*",
+            "?": {"no_uni": "1"},
+            "exclude": true,
+            "comment": "Exclude links with param no_uni=1"
+          },
+          {
+            "/": "*",
+            "comment": "Match all links"
+          }
+        ]
       }
     ]
   }
